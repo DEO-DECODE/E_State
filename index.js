@@ -5,6 +5,7 @@ import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
 import { signup } from "./controllers/authController.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 dotenv.config();
 mongoose
   .connect("mongodb://127.0.0.1/Estate")
@@ -17,6 +18,7 @@ mongoose
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use((err, req, res, next) => {
