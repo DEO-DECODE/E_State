@@ -3,10 +3,10 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRoutes.js";
-import { signup } from "./controllers/authController.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-dotenv.config();
+// import dotenv from "dotenv";
+dotenv.config({ path: "config.env" });
 mongoose
   .connect("mongodb://127.0.0.1/Estate")
   .then(() => {
